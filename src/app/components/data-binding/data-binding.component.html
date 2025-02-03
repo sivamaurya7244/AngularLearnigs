@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="col-12 p-3 bg-danger text-center ">
+        <h3>Data Binding</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 p-3 bg-success text-center ">
+        <h3 (mouseenter)="fun()">One way</h3>
+    </div>
+    <div class="col-6 p-3 bg-primary text-center">
+        <h3>Two way</h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 text-center">
+        <div class="row">
+            <div class="col-6 p-3 bg-secondary">
+                <h4>From .ts to .Html</h4>
+            </div>
+            <div class="col-6 p-3 bg-warning">
+                <h4>From .html to .ts</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-6  bg-secondary text-center">
+        <div class="row">
+            <div class="col-12 p-3 ">
+                <h4>Using Ng Model</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6 text-center">
+        <div class="row">
+            <div class="col-6 ">
+                <div class="row">
+                    <div class="col-6 p-3 bg-success">
+                        <p>Interpolation</p>
+                    </div>
+                    <div class="col-6 p-3 bg-primary">
+                        <p>Property Binding</p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-6  bg-secondary text-center">
+                <h1>Event Binding</h1>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-6 p-3 bg-success text-center">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <p>
+            courseName => {{courseName}}
+        </p>
+        <div>CourseDuration: {{courseDuration}}</div>
+
+    </div>
+    <!-- Property Binding -->
+    <div class="col-3">
+        <input type="text" [value]="courseName" [minLength]="minLength" />
+    </div>
+    <div class="col-3">
+        <input [type]="myInput">
+    </div>
+    <div class="col-3">
+        <p [class]="dangerClass">This is a simple para</p>
+
+    </div>
+</div>
+
+<!-- Event Binding -->
+<div class="row">
+    <div class="col-2">
+        <button class="btn btn-primary" (click)="showMessage()">Show Info</button>
+    </div>
+    <div class="col-3">
+        <select (change)="onStateChnage($event)">
+
+            <option value="">Select State</option>
+            <option value="Mah">Maharastra</option>
+            <option value="Goa">Goa</option>
+            <option value="punjab">Punjab</option>
+            <option value="Utr">Uttar pradesh</option>
+
+        </select>
+    </div>
+    <div class="col-4">
+        <button class="btn btn-primary" (click)="showLanguageName('Angualr')">ANGUALR</button>
+        <button class="btn btn-secondary" (click)="showLanguageName('React')">React</button>
+        <button class="btn btn-warning" (click)="showLanguageName('Java')">Java</button>
+    </div>
+</div>
+
+<div class="row pt-5 pb-5">
+
+    <div class="col-3">
+        <input type="text" [value]="courseName" placeholder="courseName">
+    </div>
+
+    <div class="col-3">
+        <input type="text" [(ngModel)]="courseName" placeholder="courseName">
+    </div>
+
+</div>
+

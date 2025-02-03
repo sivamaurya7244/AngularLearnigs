@@ -1,0 +1,33 @@
+<p>get-api works!</p>
+<div class="row">
+    <div class="col-6">
+        <div class="btn btn-primary" (click)="getApiData()">Get users Data</div>
+    </div>
+
+    <div class="col-6">
+        <div class="btn btn-primary" (click)="getEmployeeData()">Get Employee Detail</div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <!-- @for (item of userList; track $index) {
+            <li>{{item.name}}{{item.email}}</li>
+        } -->
+            <ul>
+                <li *ngFor="let users of userList;">
+                    Name:{{users.name}}Email:{{users.email}}
+
+                </li>
+            </ul>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        @for (item of employeeList; track $index) {
+            <li>{{item.employeeId}}--{{item.emailId}}</li>
+        }
+    </div>
+</div>

@@ -1,0 +1,108 @@
+<div class="row">
+    <!-- <div class="col-8 col-md-6 col-sm-12"> -->
+    <div class="col-lg-8 col-md-6 col-12 order-2 order-md-1">
+
+        <div class="card">
+            <div class="card-header bg-info">
+                <h3 class="text-center">Video List</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    @for (item of videoList; track $index)
+                    {
+                    <!-- <div class="col-4 pt-1"> -->
+                    <div class="col-md-4 col-12 pt-1">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.videoTitle}}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                <p class="card-text">{{item.videoUrl}}</p>
+                                <div>
+                                    <a class="card-link">
+                                        <button class="btn btn-primary btn-sm" (click)="onEdit(item)">Edit</button>
+                                    </a>
+                                    <a class="card-link">
+                                        <div class="btns">
+                                            <button class="btn btn-secondary btn-sm"
+                                                (click)="deleteVideos(item.videoId)">Delete</button>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    }
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-4 col-md-6 col-sm-12"> -->
+    <div class="col-lg-4 col-md-6 col-12 order-1 order-md-2">
+
+        <div class="card">
+            <div class="card-header bg-primary">
+                <h3 class="text-center">New Vides Form</h3>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="videoform"(submit)="addVideos()">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">Title<span>*</span></label>
+                            <input type="text" formControlName="videoTitle" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Url</label>
+                            <input type="text" formControlName="videoUrl" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Thumbnail</label>
+                            <input type="text" formControlName="videoThumbnail" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Duration</label>
+                            <input type="text" formControlName="totalDuration" class="form-control">
+                        </div>
+                        <div class="col-12">
+                            <label for="">Description</label>
+                            <textarea class="form-control" formControlName="videoDescription" cols="3" id=""></textarea>
+                        </div>
+
+                        <div class="row">
+
+                            <div class=" col-6 text-center">
+                                <button class="btn btn primary text center">Reset</button>
+                            </div>
+                            <div class=" col-6 text-center">
+                                <button type="submit" class="btn btn primary text center">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row p-2">
+                    <div class="col-2">
+                        <button class="btn btn-primary text-center">Reset</button>
+                    </div>
+                    <div class="col-6">
+                        <div class="btns">
+                            @if(VideoObj.videoId==0){
+
+                            <button class="btn btn-info text-center" (click)="addVideos()">Save Video</button>
+                            }
+                            @else{
+                            <button class="btn btn-info text-center" (click)="updateVideos()">Update Video</button>
+                            }
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

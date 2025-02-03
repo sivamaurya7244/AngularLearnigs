@@ -1,0 +1,133 @@
+<div class="row">
+    <div class="col-3">
+        @if(isDivVisible == true)
+        {
+        <div class="bg-success p-3">
+            Div1
+        </div>
+        }
+    </div>
+
+    <div class="col-3">
+        @if(div2Visible=='yes'){
+        <div class="bg-danger p-3">
+            Div2
+        </div>
+        }
+        @else {
+        <p>Div 2 Hidden</p>
+        }
+
+    </div>
+
+
+    <div class="col-3">
+        <div class="p-3">
+            @if(dayName=='mon'){
+            <p>Monday</p>
+            }
+            @else if (dayName=='tue') {
+            <p>Tuesday</p>
+            }
+            @else if (dayName=='wed') {
+            <p>Wednesday</p>
+            }
+            @else if (dayName=='thu') {
+            <p>Thursday</p>
+            }
+            @else if (dayName=='fri') {
+            <p>Friday</p>
+            }
+            @else if (dayName=='sat') {
+            <p>Saturday</p>
+            }
+            @else if (dayName=='sun') {
+            <p>Sunday</p>
+            }
+            @else {
+            <p>Invalid Day</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="row pt-3">
+    <div class="col-3 text-center">
+        <button class="btn btn-success" (click)="showDiv(false)">Hide</button>
+        <button class="btn btn-danger mx-2" (click)="showDiv(true)">Show</button>
+    </div>
+    <div class="col-3">
+        <div class=" p-3">
+            <input type="text" [(ngModel)]="div2Visible" />
+        </div>
+    </div>
+    <div class="col-3">
+        <div class="bg-secondary p-3">
+            <input type="text" [(ngModel)]="dayName" />
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3 p-3">
+        @for (item of cityList; track $index) {
+        <ul>
+            <li>{{item}}</li>
+        </ul>
+
+        }
+
+    </div>
+    <div class="col-9 p-3">
+        @for (item of cityList; track $index) {
+
+        <button class="btn btn-danger m-2">{{item}}</button>
+        <input type="text" value="{{item}}">
+
+        }
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-5 p-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>SrNo.</th>
+                    <th>name</th>
+                    <th>mobileNo</th>
+                    <th>city</th>
+                    <th>isActive</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of studentList; track $index) {
+                <tr>
+                    <td>{{$index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.mobileNo}}</td>
+                    <td>{{item.city}}</td>
+                    <td style="{{item.isActive?'color:green':'color:red'}}">
+                        @if(item.isActive){
+                        <span>Student is Active</span>
+                        }@else {
+                        <span>Student is Inactive</span>
+                        }
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-3">
+        <select >
+
+                @for (item of studentList; track $index) {
+                <option value="{{item.mobileNo}}">{{item.name}}</option>
+                }
+        </select>
+    </div>
+</div>

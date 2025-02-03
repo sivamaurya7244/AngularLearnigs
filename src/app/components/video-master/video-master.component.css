@@ -1,0 +1,10 @@
+.form-control{
+    box-shadow: none;
+}
+span{
+    color: red;
+}
+.btns{  
+    margin-top: 10px;
+    display: inline;
+}
